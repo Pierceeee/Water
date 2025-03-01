@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pi-Water | The Water Closest to Nature, Just Like Living Water">
+    <meta name="keywords" content="Pi-Water, Living Water, Health Benefits, Water Technology">
+    <title>Pi-Water | The Water Closest to Nature, Just Like Living Water</title>
+    <style>
+        /* Improved Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #0277bd;
+            --primary-light: #b3e5fc;
+            --primary-dark: #01579b;
+            --text-color: #333;
+            --background-light: #f5f5f5;
+            --card-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            --transition-standard: all 0.3s ease;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            line-height: 1.3;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s, filter 0.3s;
+        }
+        
+        img:hover {
+            transform: scale(1.02);
+        }
+        
+        section {
+            padding: 80px 0;
+            scroll-margin-top: 80px;
+        }
+        
+        /* Improved Header Styles */
+        header {
+            background: linear-gradient(135deg, #e0f7fa, #b3e5fc);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: padding 0.3s, box-shadow 0.3s;
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            background: rgba(224, 247, 250, 0.95);
+            backdrop-filter: blur(5px);
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-color);
+            transition: font-size 0.3s;
+            letter-spacing: 1px;
+        }
+        
+        header.scrolled .logo {
+            font-size: 24px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 0;
+            position: relative;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-dark);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-dark);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Improved Hero Section */
+        .hero {
+            background: url("b1e3a934-d38c-47ea-8cf4-8680f1adca64.jfif") center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 150px 0;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(2, 119, 189, 0.8), rgba(1, 87, 155, 0.8));
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin: 0 auto 30px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        /* Improved CTA Button */
+        .cta-button {
+            display: inline-block;
+            background-color: #fff;
+            color: var(--primary-dark);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            background-color: #f0f0f0;
+        }
+        
+        /* Improved About Section */
+        .about {
+            background-color: var(--background-light);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        /* Improved What is Pi-Water Section */
+        .what-is-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .what-is-content h3 {
+            margin-top: 40px;
+            width: 100%;
+        }
+        
+        /* Improved Benefits Section */
+        .benefits {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .benefit-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .benefit-card h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        /* Improved Products Section */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .product-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: white;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .product-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            margin-bottom: 0;
+            box-shadow: none;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .product-details {
+            padding: 25px;
+        }
+        
+        .product-details h3 {
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+        
+        .product-details .cta-button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 1rem;
+        }
+        
+        /* Improved Testimonials Section */
+        .testimonials {
+            background-color: var(--background-light);
+        }
+        
+        .testimonial-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .testimonial-card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 20px;
+            flex-grow: 1;
+            position: relative;
+            padding-left: 20px;
+            border-left: 3px solid var(--primary-light);
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            text-align: right;
+            color: var(--primary-dark);
+        }
+        
+        /* Improved CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .cta h2::after {
+            background-color: white;
+        }
+        
+        /* Improved Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 70px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-column h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-light);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul li a,
+        .footer-column a {
+            color: #b3e5fc;
+            text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+        
+        .footer-column ul li a:hover,
+        .footer-column a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-column p {
+            margin-bottom: 10px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Animation for page elements */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        
+        .fade-in-visible {
+            opacity: 1;
+        }
+        
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px 10px;
+            }
+            
+            .about-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header" role="banner">
+        <div class="container">
+            <nav role="navigation">
+                <div class="logo">π-Water</div>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#what-is">What is Pi-Water</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" aria-label="Hero Section">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Pi-Water -- The Water Closest to Nature, Just Like Living Water</h1>
+                <p>Experience the revolutionary water technology that mimics the water found in living organisms, promoting better absorption and offering various health benefits.</p>
+                <a href="#products" class="cta-button">Explore Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about" aria-label="About Pi-Water">
+        <div class="container">
+            <h2 class="fade-in">How π-water was discovered</h2>
+            <div class="about-grid fade-in">
+                <div>
+                    <p>π-water was discovered during the study of physiology of plants. In 1964 in Japan the late professor Yoshiaki Goto and Dr. Shoji Yamashita of agricultural department of Nagoya University noticed the living water contained in plants is the very important factor in flower bud differentiation during their study of it.</p>
+                    <p>Dr. Yamashita tentatively named the water, "the water that is very similar to living water," as "π-water." Afterward it was explicated that π-water plays an important role not only in flower bud differentiation but also in healthy growing of plants and animals. The property of π-water is induced by very small amount of iron ions which are called ferric ferrous salts in highly energized state.</p>
+                    <p>π-water supports healthy growth of all living things. <a href="https://www.ibe-techno.com/en/about_us/index.html">Dr. Shinji Makino, the founder of IBE company</a>, studied π-water with Dr. Yamashita and put it to practical uses and developed various products so that many people can use and enjoy it.</p>
+                </div>
+                <img src="42faa26a-4092-4759-a799-c5fde5f19623.jfif" alt="Pi-Water Discovery" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- What is Pi-Water Section -->
+    <section id="what-is" class="what-is" aria-label="What is Pi-Water?">
+        <div class="container">
+            <div class="what-is-content fade-in">
+                <h2>What is Pi-Water?</h2>
+                <p>Pi-Water, often referred to as "living water," is a type of water developed through advanced scientific processes to closely mimic the water found in living organisms. It is believed to be structured in a way that enhances its compatibility with biological systems, promoting better absorption and offering various health benefits.</p>
+                <img src="a8501b8f-c247-41b3-bb04-27516fdfc4e9 (1).jfif" alt="Pi-Water Diagram" loading="lazy">
+                
+                <h3>Infinitely similar to bio water</h3>
+                <p>It is said that 70 percents of human body consists of water. This water is called bio water and totally different from well water and tap water. The bio water possesses very high energy and plays very important role to balance the organic body.</p>
+                <p>For example, the amniotic fluid which is a nursing water for baby has the highest energy in bio waters. The amniotic fluid has function of control germs, will not spoil, and has high capacity of purification, etc.. The same functions have been confirmed with π-water in experiments.</p>
+                
+                <h3>Water with High Energy</h3>
+                <img src="1.PNG" alt="Kirlian Images of Pi-Water" loading="lazy">
+                <p>The above pictures are Kirlian pictures which is said to photograph aura energy. Very strong energy is radiated from π-water and π-ceramic ball.</p>
+                <p>Energy means "Ki" or "Chi" (気) in oriental medicine. Under certain condition some catch cold, whereas others do not catch it. This occurs because of the difference of energy in each person. Lack of energy will be the basic cause for diseases. It is π-water that supplies energy and leads the living body to the natural healthy condition.</p>
+                
+                <h3>Vibrating water</h3>
+                <p>Hydrogen atoms are being replaced at a high speed</p>
+                <p>Water is H2O in chemical formula but the water will not exist in form of one water molecule in the real world. Some molecules are bound by hydrogen bonding and exist as groups. In hydrogen bonding atoms of hydrogen are always exchanging.</p>
+                <img src="2.PNG" alt="Hydrogen Exchange Diagram" loading="lazy">
+                <p>It is thought that the faster the speed of exchange of hydrogen atoms is, the better the water is for your health. The speed of the exchange is shown by the half-width of NMR (nuclear magnetic resonance) spectra. The narrower half width shows the faster replacement of hydrogen atoms.</p>
+                <img src="3.PNG" alt="NMR Spectra Comparison" loading="lazy">
+                <p>The sixties value of the half-width in NMR spectra is classified as superexcellent water enough, while the value of π-water is 51.5. In our research for the literature on this subject, there is no report of smaller value than 51.5.</p>
+                <p>π-water is, in a sense, an actively vibrating water.</p>
+                
+                <h3>π-water systems</h3>
+                <img src="f95ce109-4c49-4348-8db5-4c5e5fd49f27.jfif" alt="Pi-Water Systems" loading="lazy">
+                <p>π-water technology is in harmony with nature.</p>
+                <p>After long study of π-water, IBE devised the original π-water systems. π-water systems are mechanisms that activate water molecules by catalytic function of small amount of excited iron ions and minerals.</p>
+                <p>The essence of this technology is based upon harmony with nature. It will not produce matters that don't exist in nature. It will not produce harmful things to human's body. Products produced by π-water systems originate from nature and the application of the technology causes activation of biosphere and non-biosphere, which supports the balance of all.</p>
+                <p>π-water systems have been put to practical uses in various fields such as agriculture, stockbreeding, manufacturing, environmental protections, and health industries.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="benefits" aria-label="Benefits of Pi-Water">
+        <div class="container">
+            <h2 class="fade-in">Benefits of Pi-Water</h2>
+            <div class="benefits-grid fade-in">
+                <div class="benefit-card">
+                    <h3>Natural Energy</h3>
+                    <p>Pi-Water provides high energy that supports the natural balance of all organic bodies, leading to better health conditions.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Bio-Compatible</h3>
+                    <p>Closely resembles the water found in living organisms, making it more easily absorbed and utilized by the body.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Harmony with Nature</h3>
+                    <p>Created through processes that work with nature, not against it, producing no harmful substances.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products" aria-label="Our Pi-Water Products">
+        <div class="container">
+            <h2 class="fade-in">Our Pi-Water Products</h2>
+            <div class="product-grid fade-in">
+                <div class="product-card">
+                    <img src="0bc430ed-77bb-44ab-a95d-5933b0c3ec91.jfif" alt="AQUA-π251" loading="lazy">
+                    <div class="product-details">
+                        <h3>AQUA-π251</h3>
+                        <p>A household π-water purifier that you can use on countertop or install under the kitchen sink.</p>
+                        <p class="image-caption">AQUA-π251: The perfect solution for your home.</p>
+                        <a href="#" class="cta-button">Learn More</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="0cb90df2-e19b-4a97-b057-51a077ca90b3.jfif" alt="AQUA-π503" loading="lazy">
+                    <div class="product-details">
+                        <h3>AQUA-π503</h3>
+                        <p>For whole house use. Not only for drinking and cooking but everything in domestic uses with water such as cleaning, washing the face and teeth, taking a bath, watering flowers in the garden, and washing your cars, etc. Also ideal for professional use in restaurants, beauty salons, hospitals, food manufacturers, and more.</p>
+                        <a href="#" class="cta-button">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials" aria-label="Customer Testimonials">
+        <div class="container">
+            <h2 class="fade-in">Customer Testimonials</h2>
+            <div class="testimonial-grid fade-in">
+                <div class="testimonial-card">
+                    <img src="022501c7-7b05-441e-9487-86057b6b7fa0 (1).jfif" alt="Chef Tanooka" loading="lazy">
+                    <div class="testimonial-content">
+                        "When you use π-water for steamed rice, the white color of the rice will last longer than you use normal water. Vegetables will keep the freshness longer after soaking in π-water for a while. Besides, bitter tastes of vegetables will be removed and the tastes of them will be better and milder."
+                    </div>
+                    <div class="testimonial-author">- Mr. Tanooka, Owner Chef of "Lois de la nature" French Restaurant</div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="0973f93c-8b26-4ff8-9749-9a1fa7fa05b2.jfif" alt="Etsuko Suzuki" loading="lazy">
+                    <div class="testimonial-content">
+                        "Tap water contains chlorine. Chlorine destroys vitamins you take in. We want to give children good things for their healthy growth. So we decided to change the water which is indispensable for keeping health. Therefore we chose π-water."
+                    </div>
+                    <div class="testimonial-author">- Etsuko Suzuki, Director of Sakado Azuma Kindergarten</div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="4e2e968c-a3f3-42ac-a200-79f87f6c3337.jfif" alt="Keiji Yasue" loading="lazy">
+                    <div class="testimonial-content">
+                        "Our pharmacy has been expanding its business involvement from a pharmacy to medical gas plumbing arrangements and home-visit care since its foundation of 1923. We've installed π-Water treatment units in our 'NAMBU YAKKYOKU' pharmacies to provide the best quality water for our customers."
+                    </div>
+                    <div class="testimonial-author">- Keiji Yasue, Director of Pharmaceutical Department, Nambu Co., Ltd.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" aria-label="Call to Action">
+        <div class="container fade-in">
+            <h2>Transform Your Water Quality Now With Pi-water</h2>
+            <a href="#contact" class="cta-button">Contact Us Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p>AILAS HEAVY EQUIPMENT CORP.</p>
+                    <p>Unit 1512 15th Floor One Park Drive,</p>
+                    <p>11th Drive Corner 9th Avenue,</p>
+                    <p>Fort Bonifacio, Taguig City,</p>
+                    <p>Fourth District, NCR 1630</p>
+                    <p>TEL: +63-945-851-6566</p>
+                    <p>Email: <a href="mailto:ailas-ph@ailas.co.jp">ailas-ph@ailas.co.jp</a></p>
+                </div>
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#">AQUA-π251</a></li>
+                        <li><a href="#">AQUA-π503</a></li>
+                        <li><a href="#">All Products</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Learn More</h3>
+                    <ul>
+                        <li><a href="#">About π-Water</a></li>
+                        <li><a href="#">Scientific Research</a></li>
+                        <li><a href="#">Environmental Impact</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AILAS HEAVY EQUIPMENT CORP. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for scroll effect and animations -->
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Fade in animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(function(element) {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const viewportHeight = window.innerHeight;
+
+                    // Check if the element is in the viewport
+                    if (elementTop < viewportHeight - 50) { // Adjust the threshold as needed
+                        element.classList.add('fade-in-visible'); // Add a class to trigger the fade-in
+                    }
+                });
+            };
+
+            // Initial check
+            fadeInOnScroll();
+
+            // Add scroll event listener
+            window.addEventListener('scroll', fadeInOnScroll);
+        });
+    </script>
+</body>
+</html>
