@@ -551,6 +551,209 @@
                 grid-template-columns: 1fr;
             }
         }
+        
+        .filter-details {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .filter-details h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .filter-details ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .filter-details strong {
+            color: var(--primary-dark);
+        }
+        
+        /* Star Rating System */
+        .testimonial-rating {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .stars {
+            display: inline-flex;
+            position: relative;
+        }
+        
+        .star {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 5px;
+            position: relative;
+        }
+        
+        .star:last-child {
+            margin-right: 0;
+        }
+        
+        .star:before, .star:after {
+            content: '';
+            position: absolute;
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .star:before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e0e0e0'%3E%3Cpath d='M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z'/%3E%3C/svg%3E");
+        }
+        
+        .star.filled:after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFD700'%3E%3Cpath d='M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z'/%3E%3C/svg%3E");
+        }
+        
+        .star.half-filled:after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cdefs%3E%3ClinearGradient id='half' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='50%25' stop-color='%23FFD700'/%3E%3Cstop offset='50%25' stop-color='%23e0e0e0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23half)' d='M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z'/%3E%3C/svg%3E");
+        }
+        
+        /* Add a subtle animation on hover */
+        .testimonial-card:hover .star {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+        
+        /* Adjust testimonial card spacing for the new rating element */
+        .testimonial-card {
+            padding-top: 25px;
+        }
+        
+        .testimonial-content {
+            margin-top: 5px;
+        }
+        
+        /* Product Image Carousel Styles */
+        .product-carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px 10px 0 0;
+            height: 300px;
+        }
+        
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+        
+        .carousel-slide img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            margin-bottom: 0;
+            box-shadow: none;
+            border-radius: 0;
+        }
+        
+        .carousel-controls {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            z-index: 5;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+        }
+        
+        .carousel-dot.active {
+            background-color: var(--primary-color);
+            transform: scale(1.2);
+        }
+        
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 5;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-arrow:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .carousel-arrow.prev {
+            left: 10px;
+        }
+        
+        .carousel-arrow.next {
+            right: 10px;
+        }
+        
+        .carousel-arrow::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid var(--primary-dark);
+            border-right: 2px solid var(--primary-dark);
+            display: inline-block;
+        }
+        
+        .carousel-arrow.prev::before {
+            transform: rotate(-135deg);
+            margin-left: 5px;
+        }
+        
+        .carousel-arrow.next::before {
+            transform: rotate(45deg);
+            margin-right: 5px;
+        }
+        
+        /* Responsive adjustments for carousel */
+        @media screen and (max-width: 480px) {
+            .carousel-arrow {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .carousel-dot {
+                width: 10px;
+                height: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -629,6 +832,25 @@
                 <p>After long study of π-water, IBE devised the original π-water systems. π-water systems are mechanisms that activate water molecules by catalytic function of small amount of excited iron ions and minerals.</p>
                 <p>The essence of this technology is based upon harmony with nature. It will not produce matters that don't exist in nature. It will not produce harmful things to human's body. Products produced by π-water systems originate from nature and the application of the technology causes activation of biosphere and non-biosphere, which supports the balance of all.</p>
                 <p>π-water systems have been put to practical uses in various fields such as agriculture, stockbreeding, manufacturing, environmental protections, and health industries.</p>
+                
+                <h3>How Our Pi-Water Filter Works</h3>
+                <img src="fdc06484-16c9-4ca2-bb83-807b76275dc5.jfif" alt="Cross section of Pi-Water filter cartridge" loading="lazy">
+                <div class="filter-details">
+                    <h4>Reasons for the good water</h4>
+                    <p><strong>Micro filter layer:</strong> Filtering impurities of mud and rust by 0.45 micron sized mesh filter</p>
+                    
+                    <p><strong>Special activated carbon layer:</strong> Removal of residual chlorine and agricultural chemicals</p>
+                    
+                    <p><strong>Filtering capacity <small>*Test methods are based upon JIS3201.</small></strong></p>
+                    <ul>
+                        <li>Residual chlorine: 30,000 liters</li>
+                        <li>Total trihalomethane: 7,500 liters</li>
+                        <li>Soluble lead: 30,000 liters</li>
+                        <li>CAT: 30,000 liters</li>
+                    </ul>
+                    
+                    <p><strong>π-ceramic layer:</strong> Make good water for drinking and cooking by five materials including π-ceramics, coral sand, natural calcium, mineral stone ceramic, and strong magnet</p>
+                </div>
             </div>
         </div>
     </section>
@@ -660,7 +882,22 @@
             <h2 class="fade-in">Our Pi-Water Products</h2>
             <div class="product-grid fade-in">
                 <div class="product-card">
-                    <img src="0bc430ed-77bb-44ab-a95d-5933b0c3ec91.jfif" alt="AQUA-π251" loading="lazy">
+                    <div class="product-carousel" id="aqua-251-carousel">
+                        <div class="carousel-slides">
+                            <div class="carousel-slide">
+                                <img src="0bc430ed-77bb-44ab-a95d-5933b0c3ec91.jfif" alt="AQUA-π251 Front View" loading="lazy">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="ac708a6b-9056-4cea-b07c-872d30b41133.jfif" alt="AQUA-π251 Filter Cartridge" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="carousel-arrow prev" onclick="moveCarousel(-1, 'aqua-251-carousel')"></div>
+                        <div class="carousel-arrow next" onclick="moveCarousel(1, 'aqua-251-carousel')"></div>
+                        <div class="carousel-controls">
+                            <div class="carousel-dot active" onclick="jumpToSlide(0, 'aqua-251-carousel')"></div>
+                            <div class="carousel-dot" onclick="jumpToSlide(1, 'aqua-251-carousel')"></div>
+                        </div>
+                    </div>
                     <div class="product-details">
                         <h3>AQUA-π251</h3>
                         <p>A household π-water purifier that you can use on countertop or install under the kitchen sink.</p>
@@ -669,7 +906,22 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="0cb90df2-e19b-4a97-b057-51a077ca90b3.jfif" alt="AQUA-π503" loading="lazy">
+                    <div class="product-carousel" id="aqua-503-carousel">
+                        <div class="carousel-slides">
+                            <div class="carousel-slide">
+                                <img src="0cb90df2-e19b-4a97-b057-51a077ca90b3.jfif" alt="AQUA-π503 Front View" loading="lazy">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="ff73218e-21ba-4cbb-b73a-adaa1aea1cc8.jfif" alt="AQUA-π503 Filter System" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="carousel-arrow prev" onclick="moveCarousel(-1, 'aqua-503-carousel')"></div>
+                        <div class="carousel-arrow next" onclick="moveCarousel(1, 'aqua-503-carousel')"></div>
+                        <div class="carousel-controls">
+                            <div class="carousel-dot active" onclick="jumpToSlide(0, 'aqua-503-carousel')"></div>
+                            <div class="carousel-dot" onclick="jumpToSlide(1, 'aqua-503-carousel')"></div>
+                        </div>
+                    </div>
                     <div class="product-details">
                         <h3>AQUA-π503</h3>
                         <p>For whole house use. Not only for drinking and cooking but everything in domestic uses with water such as cleaning, washing the face and teeth, taking a bath, watering flowers in the garden, and washing your cars, etc. Also ideal for professional use in restaurants, beauty salons, hospitals, food manufacturers, and more.</p>
@@ -687,6 +939,15 @@
             <div class="testimonial-grid fade-in">
                 <div class="testimonial-card">
                     <img src="022501c7-7b05-441e-9487-86057b6b7fa0 (1).jfif" alt="Chef Tanooka" loading="lazy">
+                    <div class="testimonial-rating">
+                        <span class="stars" data-rating="5">
+                            <i class="star filled"></i>
+                            <i class="star filled"></i>
+                            <i class="star filled"></i>
+                            <i class="star filled"></i>
+                            <i class="star filled"></i>
+                        </span>
+                    </div>
                     <div class="testimonial-content">
                         "When you use π-water for steamed rice, the white color of the rice will last longer than you use normal water. Vegetables will keep the freshness longer after soaking in π-water for a while. Besides, bitter tastes of vegetables will be removed and the tastes of them will be better and milder."
                     </div>
@@ -694,6 +955,15 @@
                 </div>
                 <div class="testimonial-card">
                     <img src="0973f93c-8b26-4ff8-9749-9a1fa7fa05b2.jfif" alt="Etsuko Suzuki" loading="lazy">
+                    <div class="testimonial-rating">
+                        <span class="stars" data-rating="5">
+                            <i class="star filled"></i>
+                            <i class="star filled"></i>
+                            <i class="star filled"></i>
+                            <i class="star filled"></i>
+                            <i class="star filled"></i>
+                        </span>
+                    </div>
                     <div class="testimonial-content">
                         "Tap water contains chlorine. Chlorine destroys vitamins you take in. We want to give children good things for their healthy growth. So we decided to change the water which is indispensable for keeping health. Therefore we chose π-water."
                     </div>
@@ -701,6 +971,15 @@
                 </div>
                 <div class="testimonial-card">
                     <img src="4e2e968c-a3f3-42ac-a200-79f87f6c3337.jfif" alt="Keiji Yasue" loading="lazy">
+                    <div class="testimonial-rating">
+                        <span class="stars" data-rating="4.5">
+                            <i class="star filled"></i>
+                            <i class="star filled"></i>
+                            <i class="star filled"></i>
+                            <i class="star filled"></i>
+                            <i class="star half-filled"></i>
+                        </span>
+                    </div>
                     <div class="testimonial-content">
                         "Our pharmacy has been expanding its business involvement from a pharmacy to medical gas plumbing arrangements and home-visit care since its foundation of 1923. We've installed π-Water treatment units in our 'NAMBU YAKKYOKU' pharmacies to provide the best quality water for our customers."
                     </div>
@@ -729,24 +1008,24 @@
                     <p>11th Drive Corner 9th Avenue,</p>
                     <p>Fort Bonifacio, Taguig City,</p>
                     <p>Fourth District, NCR 1630</p>
-                    <p>TEL: +63-945-851-6566</p>
+                    <p>TEL: <a href="tel:+639458516566">+63-945-851-6566</a></p>
                     <p>Email: <a href="mailto:ailas-ph@ailas.co.jp">ailas-ph@ailas.co.jp</a></p>
                 </div>
                 <div class="footer-column">
                     <h3>Products</h3>
                     <ul>
-                        <li><a href="#">AQUA-π251</a></li>
-                        <li><a href="#">AQUA-π503</a></li>
-                        <li><a href="#">All Products</a></li>
+                        <li><a href="#products" onclick="scrollToProduct('AQUA-π251', event)">AQUA-π251</a></li>
+                        <li><a href="#products" onclick="scrollToProduct('AQUA-π503', event)">AQUA-π503</a></li>
+                        <li><a href="#products">All Products</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Learn More</h3>
                     <ul>
-                        <li><a href="#">About π-Water</a></li>
-                        <li><a href="#">Scientific Research</a></li>
-                        <li><a href="#">Environmental Impact</a></li>
-                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#what-is">About π-Water</a></li>
+                        <li><a href="#what-is">Scientific Research</a></li>
+                        <li><a href="#benefits">Environmental Impact</a></li>
+                        <li><a href="#contact" onclick="showFAQs(event)">FAQs</a></li>
                     </ul>
                 </div>
             </div>
@@ -789,7 +1068,244 @@
 
             // Add scroll event listener
             window.addEventListener('scroll', fadeInOnScroll);
+            
+            // Initialize all carousels
+            initCarousels();
         });
+        
+        // Function to scroll to specific product
+        function scrollToProduct(productName, event) {
+            // Prevent default anchor behavior
+            event.preventDefault();
+            
+            // First scroll to products section
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+            
+            // Then find the specific product card by its heading text
+            setTimeout(function() {
+                const productCards = document.querySelectorAll('.product-card');
+                for (let card of productCards) {
+                    const heading = card.querySelector('h3');
+                    if (heading && heading.textContent === productName) {
+                        // Add a highlight effect
+                        card.style.boxShadow = '0 0 20px var(--primary-color)';
+                        
+                        // Scroll the specific product into view
+                        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        
+                        // Remove highlight after a delay
+                        setTimeout(function() {
+                            card.style.boxShadow = '';
+                        }, 2000);
+                        
+                        break;
+                    }
+                }
+            }, 500);
+        }
+        
+        // Function to show FAQs
+        function showFAQs(event) {
+            // Prevent default anchor behavior
+            event.preventDefault();
+            
+            // Check if FAQs section already exists
+            let faqsSection = document.getElementById('faqs');
+            
+            if (!faqsSection) {
+                // Create FAQs section if it doesn't exist
+                faqsSection = document.createElement('div');
+                faqsSection.id = 'faqs';
+                faqsSection.className = 'faqs-modal';
+                faqsSection.innerHTML = `
+                    <div class="faqs-content">
+                        <span class="close-faqs">&times;</span>
+                        <h2>Frequently Asked Questions</h2>
+                        <div class="faq-item">
+                            <h3>What makes Pi-Water different from regular filtered water?</h3>
+                            <p>Pi-Water contains ferric ferrous salt in a highly energized state, mimicking the water found in living organisms. This gives it unique properties that regular filtered water doesn't have.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3>How long do the filter cartridges last?</h3>
+                            <p>Our filter cartridges typically last for 6-12 months depending on usage and water quality. The filter has a capacity of 30,000 liters for most contaminants.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3>Is Pi-Water safe for everyone to drink?</h3>
+                            <p>Yes, Pi-Water is safe for everyone including children, the elderly, and pets. It contains natural minerals beneficial to health.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3>How do I install the Pi-Water system?</h3>
+                            <p>Installation is simple and comes with detailed instructions. The AQUA-π251 can be used on countertop or installed under sink, while the AQUA-π503 requires professional installation for whole-house use.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3>Where can I purchase replacement filters?</h3>
+                            <p>Replacement filters can be purchased directly through our website or by contacting our customer service team at ailas-ph@ailas.co.jp.</p>
+                        </div>
+                    </div>
+                `;
+                
+                // Add styles for the FAQs modal
+                const style = document.createElement('style');
+                style.textContent = `
+                    .faqs-modal {
+                        display: block;
+                        position: fixed;
+                        z-index: 1001;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        overflow: auto;
+                        background-color: rgba(0,0,0,0.7);
+                        opacity: 0;
+                        transition: opacity 0.3s ease;
+                    }
+                    
+                    .faqs-modal.show {
+                        opacity: 1;
+                    }
+                    
+                    .faqs-content {
+                        background-color: white;
+                        margin: 5% auto;
+                        padding: 30px;
+                        border-radius: 10px;
+                        width: 80%;
+                        max-width: 800px;
+                        max-height: 80vh;
+                        overflow-y: auto;
+                        box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+                        transform: translateY(-50px);
+                        transition: transform 0.3s ease;
+                    }
+                    
+                    .faqs-modal.show .faqs-content {
+                        transform: translateY(0);
+                    }
+                    
+                    .close-faqs {
+                        color: #aaa;
+                        float: right;
+                        font-size: 28px;
+                        font-weight: bold;
+                        cursor: pointer;
+                        transition: color 0.3s;
+                    }
+                    
+                    .close-faqs:hover {
+                        color: var(--primary-dark);
+                    }
+                    
+                    .faq-item {
+                        margin-bottom: 20px;
+                        padding-bottom: 20px;
+                        border-bottom: 1px solid #eee;
+                    }
+                    
+                    .faq-item:last-child {
+                        border-bottom: none;
+                    }
+                    
+                    .faq-item h3 {
+                        margin-bottom: 10px;
+                        color: var(--primary-dark);
+                    }
+                `;
+                
+                document.head.appendChild(style);
+                document.body.appendChild(faqsSection);
+                
+                // Add close functionality
+                const closeBtn = faqsSection.querySelector('.close-faqs');
+                closeBtn.addEventListener('click', function() {
+                    faqsSection.classList.remove('show');
+                    setTimeout(function() {
+                        faqsSection.remove();
+                    }, 300);
+                });
+                
+                // Show the modal with animation
+                setTimeout(function() {
+                    faqsSection.classList.add('show');
+                }, 10);
+                
+                // Close when clicking outside the content
+                faqsSection.addEventListener('click', function(e) {
+                    if (e.target === faqsSection) {
+                        faqsSection.classList.remove('show');
+                        setTimeout(function() {
+                            faqsSection.remove();
+                        }, 300);
+                    }
+                });
+            } else {
+                // If FAQs section already exists, just show it
+                faqsSection.classList.add('show');
+            }
+        }
+        
+        // Carousel functionality
+        let carouselIntervals = {};
+        
+        function initCarousels() {
+            const carousels = document.querySelectorAll('.product-carousel');
+            
+            carousels.forEach(carousel => {
+                const id = carousel.id;
+                // Set up automatic sliding
+                carouselIntervals[id] = setInterval(() => {
+                    moveCarousel(1, id);
+                }, 5000); // Change slide every 5 seconds
+                
+                // Pause on hover
+                carousel.addEventListener('mouseenter', () => {
+                    clearInterval(carouselIntervals[id]);
+                });
+                
+                // Resume on mouse leave
+                carousel.addEventListener('mouseleave', () => {
+                    carouselIntervals[id] = setInterval(() => {
+                        moveCarousel(1, id);
+                    }, 5000);
+                });
+            });
+        }
+        
+        function moveCarousel(direction, carouselId) {
+            const carousel = document.getElementById(carouselId);
+            const slides = carousel.querySelector('.carousel-slides');
+            const dots = carousel.querySelectorAll('.carousel-dot');
+            
+            // Get current active dot
+            let currentIndex = Array.from(dots).findIndex(dot => dot.classList.contains('active'));
+            
+            // Calculate new index
+            let newIndex = currentIndex + direction;
+            
+            // Handle wrapping
+            if (newIndex < 0) newIndex = dots.length - 1;
+            if (newIndex >= dots.length) newIndex = 0;
+            
+            jumpToSlide(newIndex, carouselId);
+        }
+        
+        function jumpToSlide(index, carouselId) {
+            const carousel = document.getElementById(carouselId);
+            const slides = carousel.querySelector('.carousel-slides');
+            const dots = carousel.querySelectorAll('.carousel-dot');
+            
+            // Update slides position
+            slides.style.transform = `translateX(-${index * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
     </script>
 </body>
 </html>
