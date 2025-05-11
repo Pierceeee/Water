@@ -754,6 +754,291 @@
                 height: 10px;
             }
         }
+
+        /* Order Request Form Styles */
+        .order-request {
+            background-color: var(--background-light);
+            padding: 80px 0;
+        }
+
+        .form-description {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: var(--text-color);
+        }
+
+        .order-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="tel"],
+        .form-group input[type="email"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px var(--primary-light);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .radio-label input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .form-buttons {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .form-buttons .cta-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1rem;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            min-width: 160px;
+            width: 180px;
+            height: 48px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .form-buttons .cta-button.buy-now {
+            background-color: #2563eb;
+            color: #fff;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+        }
+
+        .form-buttons .cta-button.contact-us {
+            background-color: #d32f2f;
+            color: #fff;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 8px rgba(211, 47, 47, 0.25);
+        }
+
+        .form-buttons .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-buttons .btn-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .form-buttons .btn-text {
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        @media screen and (max-width: 600px) {
+            .form-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .form-buttons .cta-button {
+                width: 100%;
+            }
+        }
+
+        /* Floating Action Buttons */
+        .floating-action-buttons {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            left: auto;
+            bottom: auto;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s, right 0.5s, box-shadow 0.3s, background 0.3s;
+            background: none;
+            box-shadow: none;
+            border-radius: 0;
+            border: none;
+            padding: 0;
+        }
+        .floating-action-buttons.fab-visible {
+            opacity: 1;
+            pointer-events: auto;
+            right: 0;
+        }
+        .floating-action-buttons .fab-btn {
+            width: 48px;
+            height: 160px;
+            background: #fff;
+            border-radius: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            opacity: 0.97;
+            position: relative;
+            outline: none;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            transition: box-shadow 0.2s, outline 0.2s, background 0.2s, transform 0.18s;
+            pointer-events: auto;
+            cursor: pointer;
+            color: #fff;
+            font-weight: bold;
+        }
+        .floating-action-buttons .fab-btn.buy-now {
+            background: #2563eb;
+            color: #fff;
+            box-shadow: 0 2px 8px #2563eb22;
+        }
+        .floating-action-buttons .fab-btn.contact-us {
+            background: #d32f2f;
+            color: #fff;
+            box-shadow: 0 2px 8px #d32f2f22;
+        }
+        .floating-action-buttons .fab-btn:focus {
+            outline: 3px solid #ffd600;
+            box-shadow: 0 0 0 4px #ffd60055, 0 4px 16px rgba(0,0,0,0.18);
+            z-index: 1;
+        }
+        .floating-action-buttons .fab-btn:active,
+        .floating-action-buttons .fab-btn:hover {
+            transform: scale(1.06);
+            box-shadow: 0 6px 20px 0 rgba(31,38,135,0.22);
+            filter: brightness(1.08);
+        }
+        .floating-action-buttons .fab-btn .btn-text {
+            display: block;
+            font-size: 1.05rem;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.1;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            text-shadow: 0 1px 2px #0002;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            margin: 0 auto;
+            padding: 0;
+        }
+        .fab-tooltip { display: none; }
+        .floating-action-buttons .fab-divider { display: none; }
+        @media screen and (max-width: 700px) {
+            .floating-action-buttons {
+                top: 30%;
+                right: 0;
+                left: auto;
+                bottom: auto;
+                transform: translateY(0);
+                gap: 10px;
+                padding: 0;
+                border-radius: 0;
+            }
+            .floating-action-buttons .fab-btn {
+                width: 38px;
+                height: 120px;
+                font-size: 0.95rem;
+            }
+        }
+        @keyframes fab-fade-in {
+            from { opacity: 0; right: 0; }
+            to { opacity: 1; right: 0; pointer-events: auto; }
+        }
+
+        /* Google Form Container */
+        .google-form-container {
+            position: relative;
+            width: 100%;
+            padding: 0;
+            margin: 30px auto;
+        }
+
+        .google-form-container iframe {
+            display: block;
+            margin: 0 auto;
+            max-width: 900px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .form-fallback {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            color: #777;
+        }
+
+        .form-fallback a {
+            color: var(--primary-color);
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+
+        .form-fallback a:hover {
+            color: var(--primary-dark);
+        }
+
+        @media screen and (max-width: 768px) {
+            .google-form-container iframe {
+                height: 1100px; /* Taller for mobile views */
+            }
+        }
     </style>
 </head>
 <body>
@@ -996,6 +1281,44 @@
             <a href="#contact" class="cta-button">Contact Us Today</a>
         </div>
     </section>
+
+    <!-- Order Request Form Section -->
+    <section id="order-request" class="order-request" aria-label="Order Request Form">
+        <div class="container">
+            <h2 class="fade-in">Order Request</h2>
+            <p class="form-description fade-in">After you fill out this order request, we will contact you to go over details and availability before the order is completed. If you would like faster service and direct information on current stock and pricing please contact us at <a href="mailto:sales@ailas-ph.com">sales@ailas-ph.com</a></p>
+            
+            <div class="google-form-container fade-in">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSewnCvxzaX1mJTSGx0FYYe17Mk2OmQav6Pbm4v6HuT4kA1Bzg/viewform?embedded=true" width="100%" height="950" frameborder="0" marginheight="0" marginwidth="0" style="background:#fff;border-radius:10px;box-shadow:var(--card-shadow);">Loading…</iframe>
+                <p class="form-fallback">If the form doesn't load, <a href="https://docs.google.com/forms/d/e/1FAIpQLSewnCvxzaX1mJTSGx0FYYe17Mk2OmQav6Pbm4v6HuT4kA1Bzg/viewform" target="_blank" rel="noopener">click here to open the order form in a new tab</a>.</p>
+                
+                <div class="form-buttons fade-in">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSewnCvxzaX1mJTSGx0FYYe17Mk2OmQav6Pbm4v6HuT4kA1Bzg/viewform" target="_blank" rel="noopener noreferrer" class="cta-button buy-now" role="button">
+                        <span class="btn-text">BUY NOW</span>
+                        <span class="btn-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 18c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm10 0c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zM7.16 14l.94-2h7.45c.75 0 1.41-.41 1.75-1.03l3.24-5.88A1 1 0 0 0 20.5 4H5.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7.42c-.14 0-.25-.11-.25-.25z" fill="#fff"/></svg>
+                        </span>
+                    </a>
+                    <a href="#contact" class="cta-button contact-us" role="button">
+                        <span class="btn-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.24 1.01l-2.2 2.2z" fill="#fff"/></svg>
+                        </span>
+                        <span class="btn-text">CONTACT US</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Action Buttons -->
+    <div class="floating-action-buttons" aria-label="Quick Actions" role="region">
+        <button class="cta-button buy-now fab-btn" aria-label="Buy Now" onclick="document.getElementById('order-request').scrollIntoView({behavior: 'smooth'});">
+            <span class="btn-text">Buy Now</span>
+        </button>
+        <a href="#contact" class="cta-button contact-us fab-btn" aria-label="Contact Us">
+            <span class="btn-text">Contact Us</span>
+        </a>
+    </div>
 
     <!-- Footer -->
     <footer id="contact" role="contentinfo">
@@ -1306,6 +1629,21 @@
                 }
             });
         }
+
+        // Floating Action Button scroll effect
+        (function() {
+            const fab = document.querySelector('.floating-action-buttons');
+            function toggleFabOnScroll() {
+                if (window.scrollY > 100) {
+                    fab.classList.add('fab-visible');
+                } else {
+                    fab.classList.remove('fab-visible');
+                }
+            }
+            window.addEventListener('scroll', toggleFabOnScroll);
+            // Initial check in case page is loaded scrolled
+            toggleFabOnScroll();
+        })();
     </script>
 </body>
 </html>
