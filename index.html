@@ -38,6 +38,20 @@
             padding: 0 20px;
         }
         
+        @media screen and (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 0 15px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .container {
+                width: 98%;
+                padding: 0 10px;
+            }
+        }
+        
         h1, h2, h3 {
             margin-bottom: 20px;
             color: var(--primary-color);
@@ -100,22 +114,26 @@
         }
         
         header.scrolled {
-            padding: 10px 0;
+            padding: 8px 0;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             background: rgba(224, 247, 250, 0.95);
             backdrop-filter: blur(5px);
         }
         
         .logo {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: bold;
             color: var(--primary-color);
             transition: font-size 0.3s;
             letter-spacing: 1px;
         }
         
+        .nav-toggle {
+            display: none;
+        }
+        
         header.scrolled .logo {
-            font-size: 24px;
+            font-size: 22px;
         }
         
         nav {
@@ -339,6 +357,24 @@
             font-size: 1rem;
         }
         
+        .product-made-in {
+            display: flex;
+            justify-content: center;
+            margin: 15px 0;
+        }
+        
+        .made-in-badge {
+            max-width: 150px;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .made-in-badge:hover {
+            transform: scale(1.05);
+        }
+        
         /* Improved Testimonials Section */
         .testimonials {
             background-color: var(--background-light);
@@ -501,18 +537,42 @@
         
         /* Responsive Styles */
         @media screen and (max-width: 768px) {
+            header {
+                padding: 12px 0;
+            }
+            
+            header.scrolled {
+                padding: 6px 0;
+            }
+            
             nav {
                 flex-direction: column;
+                align-items: center;
+            }
+            
+            .logo {
+                font-size: 22px;
+                margin-bottom: 6px;
+            }
+            
+            header.scrolled .logo {
+                font-size: 20px;
             }
             
             nav ul {
-                margin-top: 20px;
+                margin-top: 6px;
                 flex-wrap: wrap;
                 justify-content: center;
+                gap: 4px;
             }
             
             nav ul li {
-                margin: 0 10px 10px;
+                margin: 0 4px;
+            }
+            
+            nav ul li a {
+                font-size: 13px;
+                padding: 4px 6px;
             }
             
             .about-grid,
@@ -538,6 +598,14 @@
         }
         
         @media screen and (max-width: 480px) {
+            header {
+                padding: 8px 0;
+            }
+            
+            header.scrolled {
+                padding: 5px 0;
+            }
+            
             .hero h1 {
                 font-size: 1.8rem;
             }
@@ -550,8 +618,123 @@
             .product-grid {
                 grid-template-columns: 1fr;
             }
+            
+            nav {
+                padding: 5px 0;
+            }
+            
+            .logo {
+                font-size: 20px;
+                margin-bottom: 5px;
+            }
+            
+            nav ul {
+                margin-top: 5px;
+                gap: 3px;
+            }
+            
+            nav ul li a {
+                font-size: 12px;
+                padding: 3px 5px;
+            }
         }
         
+        /* Add hamburger menu for small screens */
+        @media screen and (max-width: 680px) {
+            .nav-toggle {
+                display: block;
+                cursor: pointer;
+                font-size: 22px;
+                color: var(--primary-dark);
+                background: none;
+                border: none;
+                padding: 5px 10px;
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 1001;
+                transition: all 0.3s ease;
+                border-radius: 4px;
+            }
+            
+            .nav-toggle:hover {
+                transform: translateY(-50%) scale(1.1);
+                background-color: rgba(255, 255, 255, 0.3);
+            }
+            
+            header.scrolled .nav-toggle {
+                font-size: 20px;
+                padding: 4px 8px;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.95);
+                padding: 10px 0;
+                border-radius: 0 0 10px 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                z-index: 1000;
+                margin-top: 0;
+            }
+            
+            nav ul.show {
+                display: flex;
+                animation: slideDown 0.3s ease forwards;
+            }
+            
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            nav ul li {
+                margin: 3px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 8px;
+                width: 100%;
+                font-size: 14px;
+            }
+            
+            nav {
+                position: relative;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0;
+                height: 42px;
+            }
+            
+            header.scrolled nav {
+                height: 35px;
+            }
+            
+            .logo {
+                text-align: left;
+                margin-bottom: 0;
+                padding-left: 15px;
+                line-height: 1;
+                position: relative;
+                top: 1px;
+            }
+        }
+
         .filter-details {
             margin-top: 20px;
             padding: 20px;
@@ -1441,6 +1624,7 @@
         <div class="container">
             <nav role="navigation">
                 <div class="logo">π-Water</div>
+                <button class="nav-toggle" aria-label="Toggle navigation menu">☰</button>
                 <ul>
                     <li><a href="#about">About</a></li>
                     <li><a href="#what-is">What is Pi-Water</a></li>
@@ -1656,12 +1840,16 @@
                             <div class="carousel-slide">
                                 <img src="ac708a6b-9056-4cea-b07c-872d30b41133.jfif" alt="AQUA-π251 Filter Cartridge" loading="lazy">
                             </div>
+                            <div class="carousel-slide">
+                                <img src="b70fccde-7e56-4a88-b983-27c4bb21dcdc.jpg" alt="AQUA-π251 Complete System" loading="lazy">
+                            </div>
                         </div>
                         <div class="carousel-arrow prev" onclick="moveCarousel(-1, 'aqua-251-carousel')"></div>
                         <div class="carousel-arrow next" onclick="moveCarousel(1, 'aqua-251-carousel')"></div>
                         <div class="carousel-controls">
                             <div class="carousel-dot active" onclick="jumpToSlide(0, 'aqua-251-carousel')"></div>
                             <div class="carousel-dot" onclick="jumpToSlide(1, 'aqua-251-carousel')"></div>
+                            <div class="carousel-dot" onclick="jumpToSlide(2, 'aqua-251-carousel')"></div>
                         </div>
                     </div>
                     <div class="product-details">
@@ -1680,12 +1868,16 @@
                             <div class="carousel-slide">
                                 <img src="ff73218e-21ba-4cbb-b73a-adaa1aea1cc8.jfif" alt="AQUA-π503 Filter System" loading="lazy">
                             </div>
+                            <div class="carousel-slide">
+                                <img src="e60635d4-35bc-4b21-a43d-6653c8345856.jpg" alt="AQUA-π503 Whole House System" loading="lazy">
+                            </div>
                         </div>
                         <div class="carousel-arrow prev" onclick="moveCarousel(-1, 'aqua-503-carousel')"></div>
                         <div class="carousel-arrow next" onclick="moveCarousel(1, 'aqua-503-carousel')"></div>
                         <div class="carousel-controls">
                             <div class="carousel-dot active" onclick="jumpToSlide(0, 'aqua-503-carousel')"></div>
                             <div class="carousel-dot" onclick="jumpToSlide(1, 'aqua-503-carousel')"></div>
+                            <div class="carousel-dot" onclick="jumpToSlide(2, 'aqua-503-carousel')"></div>
                         </div>
                     </div>
                     <div class="product-details">
@@ -1950,7 +2142,38 @@
             
             // Initialize all carousels
             initCarousels();
+            
+            // Initialize mobile menu
+            initMobileMenu();
         });
+        
+        // Function to initialize mobile menu
+        function initMobileMenu() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('nav ul');
+            
+            if (navToggle) {
+                navToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('show');
+                });
+                
+                // Close menu when clicking a link
+                const navLinks = document.querySelectorAll('nav ul li a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        navMenu.classList.remove('show');
+                    });
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    const isClickInsideNav = navToggle.contains(event.target) || navMenu.contains(event.target);
+                    if (!isClickInsideNav && navMenu.classList.contains('show')) {
+                        navMenu.classList.remove('show');
+                    }
+                });
+            }
+        }
         
         // Function to scroll to specific product
         function scrollToProduct(productName, event) {
